@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "f13a21f0-a30e-481a-af3f-cd6e65416f46",
+		"name": "Blog-site",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14432135"
+	},
+	"item": [
+		{
+			"name": "Registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"debnatharupbzs@gmail.com\",\r\n    \"password\": \"arup43\",\r\n    \"firstName\": \"Arup\",\r\n    \"lastName\": \"Debnath\",\r\n    \"mobile\": \"01870405760\",\r\n    \"photo\": \"https://i.pinimg.com/280x280_RS/e5/7c/bf/e57cbf26a1c21e6f77c8e553f6889405.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/registration",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"debnatharupbzs@gmail.com\",\r\n    \"password\": \"arup43\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/login",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Blog",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Learn Nodejs\",\r\n    \"author\": \"Arup Debnath\",\r\n    \"content\": \"Nodejs is a runtime for javascript. It has become very popular among young generation developers.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/createBlog",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"createBlog"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Blog",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/deleteBlog/63fa32be98eef9aaf09b23b3",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"deleteBlog",
+						"63fa32be98eef9aaf09b23b3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Blog",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Learn Nodejs carefully\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/updateBlog/63fa32eb98eef9aaf09b23b5",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"updateBlog",
+						"63fa32eb98eef9aaf09b23b5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Blogs By Email",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURL}}/getBlogsByEmail",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"getBlogsByEmail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Blogs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/getAllBlogs",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"getAllBlogs"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseURL",
+			"value": "http://localhost:5000/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzc0Mjg2NzIsImRhdGEiOiJ0ZXN0VXNlcjFAZ21haWwuY29tIiwiaWF0IjoxNjc3MzQyMjcyfQ.eR5XB8rYiWw0k86ydetWu4CmSxwFT6bd0J8A_FNDXh4",
+			"type": "string"
+		}
+	]
+}
